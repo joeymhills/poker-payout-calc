@@ -29,6 +29,9 @@ interface Player {
     }
     setPlayers([...players, player])
     setIncrementId(incrementId + 1) 
+    setPlayerName("")
+    setPlayerBuyin(0)
+    setPlayerBuyout(0)
   }
   
   function deletePlayer(id:number){
@@ -112,23 +115,23 @@ interface Player {
         
         <h1 className='font-bold'>Add player</h1>
         <div className='flex justify-center items-center flex-col gap-1'> 
-        <h1 className=''>Name</h1>
           <input className='border rounded-lg shadow-lg px-1' 
           type="text" 
+          placeholder='Name'
           onChange={(event) => {setPlayerName(event.target.value)}}
         />
         </div>
         <div className='flex justify-center items-center flex-col gap-1'> 
-        <h1 className=''>Buy-in</h1>
         <input className='border rounded-lg shadow-lg px-1' 
           type="number"
+          placeholder='Buy-in'
           onChange={(event) => {setPlayerBuyin(Number(event.target.value))}}
         />
         </div>
         <div className='flex justify-center items-center flex-col gap-1'> 
-        <h1 className=''>Buy-out</h1>
         <input className='border rounded-lg shadow-lg px-1' 
           type="number" 
+          placeholder='Buy-out'
           onChange={(event) => {setPlayerBuyout(Number(event.target.value))}}
         />
         </div>
