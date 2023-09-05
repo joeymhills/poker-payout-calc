@@ -58,7 +58,7 @@ interface Player {
       </thead>
       <tbody>
     
-      {players.map( id =>
+      {players?.map( id =>
         <tr>
           <td>{id.name}</td>
           <td>{id.buyin}</td>
