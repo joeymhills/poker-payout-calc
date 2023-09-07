@@ -56,7 +56,7 @@ interface Payment{
       total += playersarray[i].net
     }
     if (total != 0) {
-      alert("The total buyin and buyout must be equal, check your numbers silly!")
+      alert("The total buy-in and buy-out isn't equal, check your numbers silly!")
       return
     }
      for (let i in playersarray) {
