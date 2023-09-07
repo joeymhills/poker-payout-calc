@@ -22,11 +22,14 @@ const config: Config = {
           '900': '#900b2f',
           '950': '#510014',
       },
+      'darkgrey':{
+        '700': '#121212',
+      }
 
     },
     extend: {
       fontFamily: {
-        primary: "poker",
+        primary: "bentonreg",
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

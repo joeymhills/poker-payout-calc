@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: poker;
-  src: url("../fonts/poker.ttf") format("opentype");
+  font-family: bentonbold;
+  src: url("../fonts/BentonSans\ Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: bentonreg;
+  src: url("../fonts/BentonSans\ Regular.otf") format("opentype");
 }
