@@ -25,5 +25,8 @@
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2",
     "websocket": "^1.0.34"
+  },
+  "devDependencies": {
+    "@types/websocket": "^1.0.6"
   }
 }
