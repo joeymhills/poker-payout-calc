@@ -21,6 +21,7 @@ interface Payment{
 }
   const [incrementId, setIncrementId] = useState(0)
 
+  const [link, setLink] = useState("")
   const [players, setPlayers] = useState<Player[]>([]);
   const [payments, setPayments] = useState<Payment[]>([]);
   const [showDelete, setShowDelete] = useState(false)
@@ -42,6 +43,21 @@ interface Payment{
       };
     };
   }, [players]);
+
+  function getInfo() {
+    fetch(`${link}/players_sessions`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("data", data);
+        data.playersInfos.forEach((player: any) => {
+          console.log("player", player);
+          setPlayerName(player.names[0]);
+          setPlayerBuyin(player.buyInSum);
+          setPlayerBuyout(player.buyOutSum);
+          createPlayer();
+        });
+      }); 
+  }
 
   function createPlayer() {
     
@@ -208,31 +224,19 @@ interface Payment{
       {table()}
 
       <form className="flex pb-4 pt-8 justify-center items-center flex-col gap-2"
-        onSubmit={(event) => {event.preventDefault();createPlayer()}}>
+        onSubmit={(event) => {event.preventDefault();getInfo()}}>
         
-        <h1 className=''>Add player</h1>
+        <h1 className=''>Enter game link</h1>
         <div className='flex justify-center items-center flex-col gap-1'> 
           <input className='text-[#000] bg-[#fff]/85 border rounded-lg shadow-lg px-1' 
           type="text" 
-          placeholder='Name'
-          onChange={(event) => {setPlayerName(event.target.value)}}
-        />
-        </div>
-        <div className='flex justify-center items-center flex-col gap-1'> 
-        <input className='text-[#000] bg-[#fff]/85 border rounded-lg shadow-lg px-1' 
-          placeholder='Buy-in'
-          onChange={(event) => {setPlayerBuyin(Number(event.target.value))}}
-        />
-        </div>
-        <div className='flex justify-center items-center flex-col gap-1'> 
-        <input className='text-[#000] bg-[#fff]/85 border rounded-lg shadow-lg px-1' 
-          placeholder='Buy-out'
-          onChange={(event) => {setPlayerBuyout(Number(event.target.value))}}
+          placeholder='Link'
+          onChange={(event) => {setLink(event.target.value)}}
         />
         </div>
         
         <button className="p-1 border rounded-lg shadow-lg" type="submit">
-         Create player</button>
+         Submit</button>
         </form>
       </div>
     </main>
